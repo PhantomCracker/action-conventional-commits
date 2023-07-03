@@ -19,6 +19,7 @@ const extractCommits = async (context, core): Promise<Commit[]> => {
 
     if (prCommitsUrl) {
         try {
+            core.info("Intra in try")
             let requestHeaders = {
                 "Accept": "application/vnd.github+json",
             }
