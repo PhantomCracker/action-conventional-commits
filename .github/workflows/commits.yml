@@ -9,6 +9,6 @@ jobs:
     name: Conventional Commits
     runs-on: ubuntu-latest
     steps:
-      name: Check commit messages
-      run: |
-        yes 2>/dev/null | npx tsx ./src/main.ts
+      - run: |
+          cd ./src
+          yes 2>/dev/null | npx tsx ./main.ts
