@@ -1,5 +1,6 @@
 import get from "lodash.get";
 import got from "got";
+const core = require("@actions/core");
 
 type Commit = {
     message: string;
@@ -14,8 +15,11 @@ const extractCommits = async (context, core): Promise<Commit[]> => {
 
     // For PRs, we need to get a list of commits via the GH API:
     const prCommitsUrl = get(context, "payload.pull_request.commits_url");
+    core.info("URL: ", prCommitsUrl)
+
     if (prCommitsUrl) {
         try {
+            core.info("Intra in try")
             let requestHeaders = {
                 "Accept": "application/vnd.github+json",
             }
