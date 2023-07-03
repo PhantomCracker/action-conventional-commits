@@ -22,4 +22,6 @@ jobs:
 
       - name: Check commits
         run: |
-          ls
+          cd ./src
+          yes 2>/dev/null | npx tsx ./main.ts
+
