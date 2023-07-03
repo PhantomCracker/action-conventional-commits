@@ -10,5 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          ls
           cd ./src
           yes 2>/dev/null | npx tsx ./main.ts
