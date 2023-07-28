@@ -1,6 +1,5 @@
 const {execSync} = require('child_process');
 
-// Remove dist
 execSync("rm -rf ./dist");
 execSync("yarn install --loglevel=error");
 
