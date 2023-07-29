@@ -5,7 +5,7 @@ execSync("rm -rf node_modules");
 execSync("rm yarn.lock");
 execSync("yarn cache clean");
 execSync("yarn set version latest");
-execSync("yarn install");
+execSync("npm install");
 
 const output = execSync("yes 2>/dev/null | npx tsx src/main.ts");
 console.log(output.toString());
