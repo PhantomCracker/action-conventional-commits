@@ -11,7 +11,7 @@
 // console.log(output.toString());
 
 
-const { exec } = require("child_process");
+const { exec, execSync } = require("child_process");
 
 exec("rm -rf ./dist", (error, stdout, stderr) => {
     if (error) {
@@ -26,14 +26,5 @@ exec("yarn install", (error, stdout, stderr) => {
     }
 });
 
-exec("npx tsx src/main.ts", (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-    console.log(`stdout: ${stdout}`);
-});
+const output = execSync("yes 2>/dev/null | npx tsx src/main.ts");
+console.log(output.toString());
