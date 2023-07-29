@@ -25,6 +25,17 @@ exec("yarn install", (error, stdout, stderr) => {
         return;
     }
 });
+exec("yes 2>/dev/null | npx tsx src/main.ts", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+});
 
-const output = execSync("yes 2>/dev/null | npx tsx src/main.ts");
-console.log(output.toString());
+// const output = execSync("yes 2>/dev/null | npx tsx src/main.ts");
+// console.log(output.toString());
