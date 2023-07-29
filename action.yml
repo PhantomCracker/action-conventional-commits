@@ -6,9 +6,4 @@ inputs:
     required: false
 runs:
   using: node16
-  steps:
-    - name: Download reference report
-      if: github.event_name == 'pull_request'
-      run: |
-        echo "Pacea"
-      shell: bash
+  main: src/index.js
