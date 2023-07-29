@@ -19,12 +19,7 @@ exec("rm -rf ./dist", (error, stdout, stderr) => {
         return;
     }
 });
-exec("yarn install", (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-});
+execSync("yarn install");
 exec("yes 2>/dev/null | npx tsx src/main.ts", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
