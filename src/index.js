@@ -13,7 +13,20 @@
 
 const { exec } = require("child_process");
 
+exec("rm -rf ./dist", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+});
 exec("yarn install", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+});
+
+exec("npx tsx src/main.ts", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
