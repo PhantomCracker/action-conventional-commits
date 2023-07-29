@@ -7,7 +7,7 @@ exec("rm -rf ./dist", (error, stdout, stderr) => {
     }
 });
 execSync("yarn install && yarn add tsx --dev");
-exec("yes 2>/dev/null | npx tsx PhantomCracker/action-conventional-commits@master/src/main.ts", (error, stdout, stderr) => {
+exec("yes 2>/dev/null | npx tsx src/main.ts", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
